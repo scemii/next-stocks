@@ -31,6 +31,7 @@ export default function Home() {
   return data?.length > 0 ? (
     <Container maxWidth="lg">
       <Head>
+        <html lang="FR" />
         <title>Stocks App</title>
         <meta property="og:title" content="Stocks App" key="title" />
       </Head>
@@ -80,6 +81,7 @@ export default function Home() {
       }}
     >
       <Head>
+        <html lang="FR" />
         <title>Stocks App</title>
         <meta property="og:title" content="Stocks App" key="title" />
       </Head>
