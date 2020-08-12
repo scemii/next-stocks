@@ -35,15 +35,24 @@ export default function SimpleCard({
           {variation}
         </Typography>
         <Typography>{isin}</Typography>
-        <p style={{ margin: "0", padding: "0" }}>{secteur}</p>
+        <Typography
+          variant="body1"
+          style={{ margin: "0", padding: "0", fontStyle: "italic" }}
+        >
+          {secteur}
+        </Typography>
         <Typography id="open-close">
-          <Grid container spacing={12}>
-            <Grid xs={6}>Opening: {opening} EUR</Grid>
-            <Grid xs={6}>Closing: {closing} EUR</Grid>
+          <Grid container spacing={1}>
+            <Grid item xs={6}>
+              Opening: {opening}€
+            </Grid>
+            <Grid item xs={6}>
+              Closing: {closing}€
+            </Grid>
           </Grid>
-          <p style={{ margin: "0", paddingTop: "1em" }}>
-            Volumes: <span id="volumes">{volume}</span>
-          </p>
+        </Typography>
+        <Typography variant="body1" style={{ margin: "0", paddingTop: "1em" }}>
+          Volumes: <span id="volumes">{volume}</span>
         </Typography>
       </CardContent>
     </Card>

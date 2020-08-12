@@ -29,40 +29,55 @@ export default function Home() {
   }, 180000);
 
   return data?.length > 0 ? (
-    <Head>
-      <Container maxWidth="lg">
-        <h1>Stocks App</h1>
-        <Grid id="grid-global" container spacing={3} justify="center">
-          {data.map((element) => (
-            <Grid item xs={12} sm={4}>
-              <SimpleCard
-                name={element.stockName}
-                isin={element.isin}
-                secteur={element.secteur}
-                stockValue={element.stockValue}
-                variation={element.variation}
-                opening={element.opening}
-                closing={element.closing}
-                volume={element.volume}
-              />
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
-    </Head>
+    <Container maxWidth="lg">
+      <Head>
+        <title>Stocks App</title>
+        <meta property="og:title" content="Stocks App" key="title" />
+      </Head>
+      <div>
+        <h1 style={{ display: "inline" }}>Stocks App</h1>
+        <img
+          src="https://files-pierre-1.s3.eu-west-3.amazonaws.com/trading2.svg"
+          style={{
+            display: "inline",
+            width: "50px",
+            marginLeft: "1.5em",
+            color: "white",
+          }}
+        />
+      </div>
+      <Grid id="grid-global" container spacing={3} justify="center">
+        {data.map((element) => (
+          <Grid item xs={12} sm={4} key={element.stockName}>
+            <SimpleCard
+              name={element.stockName}
+              isin={element.isin}
+              secteur={element.secteur}
+              stockValue={element.stockValue}
+              variation={element.variation}
+              opening={element.opening}
+              closing={element.closing}
+              volume={element.volume}
+            />
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
   ) : (
-    <Head>
-      <Container
-        maxWidth="lg"
-        style={{
-          top: "50%",
-          left: "50%",
-          position: "absolute",
-          fontSize: "1.5em",
-        }}
-      >
-        Loading...
-      </Container>
-    </Head>
+    <Container
+      maxWidth="lg"
+      style={{
+        top: "50%",
+        left: "50%",
+        position: "absolute",
+        fontSize: "1.5em",
+      }}
+    >
+      <Head>
+        <title>Stocks App</title>
+        <meta property="og:title" content="Stocks App" key="title" />
+      </Head>
+      Loading...
+    </Container>
   );
 }
