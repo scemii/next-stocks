@@ -55,7 +55,7 @@ export default function Home() {
       </div>
       <Grid id="grid-global" container spacing={3} justify="center">
         {data.map((element) => (
-          <Grid item xs={12} sm={4} key={element.stockName}>
+          <Grid item xs="auto" sm={4} key={element.stockName}>
             <SimpleCard
               name={element.stockName}
               isin={element.isin}
@@ -71,12 +71,11 @@ export default function Home() {
       </Grid>
     </Container>
   ) : (
-    <Container
-      maxWidth="lg"
+    <div
       style={{
-        top: "50%",
-        left: "50%",
-        position: "absolute",
+        display: "flex",
+        justifyContent: "center",
+        verticalAlign: "center",
         fontSize: "1.5em",
       }}
     >
@@ -91,7 +90,16 @@ export default function Home() {
           key="description"
         />
       </Head>
-      Loading...
-    </Container>
+      <div
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+        }}
+      >
+        Loading...
+      </div>
+    </div>
   );
 }

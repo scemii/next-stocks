@@ -43,10 +43,10 @@ export default function SimpleCard({
         </Typography>
         <Typography id="open-close">
           <Grid container spacing={1}>
-            <Grid item xs={6}>
+            <Grid item xs="auto">
               Opening: {opening}€
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs="auto">
               Closing: {closing}€
             </Grid>
           </Grid>
