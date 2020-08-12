@@ -34,6 +34,13 @@ export default function Home() {
         <title>Stocks App</title>
         <meta property="og:title" content="Stocks App" key="title" />
       </Head>
+      <Head>
+        <meta
+          name="description"
+          content="Simple application for stocks market"
+          key="description"
+        />
+      </Head>
       <div>
         <h1 style={{ display: "inline" }}>Stocks App</h1>
         <img
@@ -76,6 +83,13 @@ export default function Home() {
       <Head>
         <title>Stocks App</title>
         <meta property="og:title" content="Stocks App" key="title" />
+      </Head>
+      <Head>
+        <meta
+          name="description"
+          content="Simple application for stocks market"
+          key="description"
+        />
       </Head>
       Loading...
     </Container>
