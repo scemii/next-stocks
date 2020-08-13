@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Grid from "@material-ui/core/Grid";
@@ -14,13 +14,32 @@ export default function SimpleCard({
   closing,
   volume,
 }) {
+  const [className, setClassName] = useState("inherit");
+
+  function setUpdate() {
+    setClassName("flash");
+    setTimeout(() => {
+      setClassName("inherit");
+    }, 1000);
+    clearTimeout();
+  }
+
+  useEffect(() => {
+    setUpdate();
+  }, [variation]);
+
   return (
     <Card id="card">
       <CardContent id="card-content">
         <Typography variant="h5" component="h2" id="card-title">
           {name}
         </Typography>
-        <Typography variant="h5" component="h3" id="card-value">
+        <Typography
+          variant="h5"
+          component="h3"
+          id="card-value"
+          className={className}
+        >
           {stockValue} EUR
         </Typography>
         <Typography
@@ -31,6 +50,7 @@ export default function SimpleCard({
               ? "card-value-positive"
               : "card-value-negative"
           }
+          className={className}
         >
           {variation}
         </Typography>
@@ -52,7 +72,10 @@ export default function SimpleCard({
           </Grid>
         </Typography>
         <Typography variant="body1" style={{ margin: "0", paddingTop: "1em" }}>
-          Volumes: <span id="volumes">{volume}</span>
+          Volumes:{" "}
+          <span id="volumes" className={className}>
+            {volume}
+          </span>
         </Typography>
       </CardContent>
     </Card>

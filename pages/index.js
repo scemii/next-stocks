@@ -16,17 +16,10 @@ export default function Home() {
       setData(result.data);
     }
     fetchData();
+    setInterval(async () => {
+      fetchData();
+    }, 30000);
   }, []);
-
-  setInterval(() => {
-    async function fetchData() {
-      const result = await axios.get(
-        "https://stocks-app-fr.herokuapp.com/stocks"
-      );
-      setData(result.data);
-    }
-    fetchData();
-  }, 180000);
 
   return data?.length > 0 ? (
     <Container maxWidth="lg">
