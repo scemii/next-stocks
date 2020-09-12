@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Head from "next/head";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
@@ -10,9 +10,7 @@ export default function Home() {
 
   useEffect(() => {
     async function fetchData() {
-      const result = await axios.get(
-        "https://stocks-app-fr.herokuapp.com/stocks"
-      );
+      const result = await axios.get("https://switchjob.net/stocks");
       setData(result.data);
     }
     fetchData();
